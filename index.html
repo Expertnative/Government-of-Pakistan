@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Government of Pakistan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #006400; /* Green background */
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    header {
+      background-color: #004d00;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    main {
+      margin-top: 80px;
+      margin-left: 20%;
+      width: 60%;
+      padding: 2rem;
+    }
+    .search-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.7rem 1.5rem;
+      background-color: #006400;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #004d00;
+    }
+    .result {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background-color: #f0fff0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: left;
+    }
+    .detail-btn {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px 0 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    #detailImage {
+      display: none;
+      margin-top: 15px;
+      text-align: center;
+    }
+    #detailImage img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>Government of Pakistan</header>
+  <main>
+    <div class="search-box">
+      <h2>CNIC Lookup Service</h2>
+      <input type="text" id="cnic" placeholder="Enter 13-digit CNIC" maxlength="13" />
+      <button onclick="searchCNIC()">Search</button>
+      <div id="result" class="result" style="display: none;"></div>
+    </div>
+  </main>
+
+  <script>
+    function searchCNIC() {
+      const cnic = document.getElementById("cnic").value;
+      const resultDiv = document.getElementById("result");
+      resultDiv.style.display = "block";
+
+      if (cnic === "7245861030721") {
+        resultDiv.innerHTML = `
+          <h3>Record Found:</h3>
+          <p><strong>CNIC:</strong> ${cnic}</p>
+          <button class="detail-btn" onclick="showDetail1()">9mm Pistol</button>
+          <button class="detail-btn">Detail Button 2</button>
+          <div id="detailImage">
+            <img src="Detail Button 1.jpg" alt="Detail Image" />
+          </div>
+        `;
+      } else {
+        resultDiv.innerHTML = `<p style='color:red;'>Record not found</p>`;
+      }
+    }
+
+    function showDetail1() {
+      document.getElementById("detailImage").style.display = "block";
+    }
+  </script>
+</body>
+</html>
